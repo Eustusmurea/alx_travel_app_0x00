@@ -21,7 +21,7 @@ class Command(BaseCommand):
         ]
         prices = [Decimal('50.00'), Decimal('75.00'), Decimal('100.00'), Decimal('120.00'), Decimal('150.00'), Decimal('200.00')]
 
-        for i in range(10):
+        for _ in range(10):
             listing = Listing.objects.create(
                 title=random.choice(titles),
                 description=random.choice(descriptions),
