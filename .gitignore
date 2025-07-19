@@ -1,1 +1,18 @@
 /travel_app_venv
+
+# Python
+__pycache__/
+*.py[cod]
+*.sqlite3
+
+# Virtual env
+venv/
+.env
+
+# VSCode or other IDEs
+*.code-workspace
+*.vscode/
+
+# OS files
+.DS_Store
+Thumbs.db
