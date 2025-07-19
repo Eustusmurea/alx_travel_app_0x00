@@ -47,5 +47,3 @@ class ReviewSerializer(serializers.ModelSerializer):
         if not Booking.objects.filter(user=request.user, listing=listing).exists():
             raise serializers.ValidationError("You can only review listings you've booked.")
         return data
-    
-    

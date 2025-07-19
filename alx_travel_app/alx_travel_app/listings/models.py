@@ -3,7 +3,6 @@ from django.contrib.auth.models import User
 from django.core.exceptions import ValidationError
 from django.utils import timezone
 
-# Create your models here.
 class Listing(models.Model):
     title = models.CharField(max_length=200)
     description = models.TextField()
@@ -13,7 +12,7 @@ class Listing(models.Model):
 
     def __str__(self):
         return self.title
-    
+
 class Booking(models.Model):
     listing = models.ForeignKey(Listing, on_delete=models.CASCADE, related_name='bookings')
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='bookings')
@@ -50,11 +49,10 @@ class Review(models.Model):
             raise ValidationError("Rating must be between 1 and 5.")
         if not self.comment:
             raise ValidationError("Comment cannot be empty.")
-        
+    
     def save(self, *args, **kwargs):
         self.full_clean()
         super().save(*args, **kwargs)
 
     class Meta:
         unique_together = ('listing', 'user')
-        
